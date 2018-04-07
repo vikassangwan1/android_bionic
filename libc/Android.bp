@@ -1677,6 +1677,14 @@ cc_library_static {
         "libjemalloc",
         "libstdc++",
     ],
+
+    target: {
+        android: {
+            lto: {
+                thin: true,
+            },
+        },
+    },
 }
 
 // ========================================================
@@ -1854,6 +1862,14 @@ cc_library {
         x86_64: {
             // Don't re-export new/delete and friends, even if the compiler really wants to.
             version_script: "libc.x86_64.map",
+        },
+    },
+
+    target: {
+        android: {
+            lto: {
+                thin: true,
+            },
         },
     },
 }
